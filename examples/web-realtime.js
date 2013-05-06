@@ -5,7 +5,10 @@
 
 var http = require('http')
   , levels = require('../')
-  , search = levels.createSearch('webpages')
+  , levelup = require('levelup')
+  , sublevel = require('level-sublevel')
+  , db = sublevel(levelup('/tmp/webpages'))
+  , search = levels.createSearch(db, 'webpages')
   , parse = require('url').parse
   , qs = require('querystring')
   , fs = require('fs');

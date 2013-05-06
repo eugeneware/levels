@@ -4,7 +4,12 @@
  */
 
 var levels = require('../')
-  , search = levels.createSearch('pets');
+  , levelup = require('levelup')
+  , sublevel = require('level-sublevel')
+  , db = sublevel(levelup('/tmp/pets'))
+  , search = levels.createSearch(db, 'pets')
+  , rimraf = require('rimraf')
+  , async = require('async');
 
 // $ node examples/simple Tobi
 // $ node examples/simple tobi
@@ -24,21 +29,21 @@ var query = process.argv.slice(2).join(' ');
 if (!query) throw new Error('query required');
 
 // index them
-
-strs.forEach(function(str, i){
-  search.index(str, i);
-});
-
-// query
-
-search.query(query).end(function(err, ids){
-  if (err) throw err;
-  var res = ids.map(function(i){ return strs[i]; });
-  console.log();
-  console.log('  Search results for "%s"', query);
-  res.forEach(function(str){
-    console.log('    - %s', str);
+async.eachSeries(Object.keys(strs),
+  function (id, cb) {
+    search.index(strs[id], id, cb);
+  },
+  function (err) {
+    // query
+    search.query(query).end(function(err, ids){
+      if (err) throw err;
+      var res = ids.map(function(i){ return strs[i]; });
+      console.log();
+      console.log('  Search results for "%s"', query);
+      res.forEach(function(str){
+        console.log('    - %s', str);
+      });
+      console.log();
+      process.exit();
+    });
   });
-  console.log();
-  process.exit();
-});

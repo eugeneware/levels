@@ -5,7 +5,10 @@
 
 var levels = require('../')
   , agent = require('superagent')
-  , search = levels.createSearch('webpages')
+  , levelup = require('levelup')
+  , sublevel = require('level-sublevel')
+  , db = sublevel(levelup('/tmp/webpages'))
+  , search = levels.createSearch(db, 'webpages')
   , fs = require('fs');
 
 // install local dev deps first:
