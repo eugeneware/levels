@@ -1,6 +1,6 @@
 {
   "name": "levels",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "leveldb full text search for node.js",
   "keywords": [
     "leveldb",
