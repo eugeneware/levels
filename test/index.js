@@ -7,7 +7,7 @@ var levels = require('../')
   , should = require('should')
   , rimraf = require('rimraf')
   , levelup = require('levelup')
-  , sublevel = require('level-sublevel')
+  , byteup = require('byteup')
   , async = require('async');
 
 var start = new Date;
@@ -49,19 +49,19 @@ levels
 
 levels
   .metaphoneKeys('levels', ['foo', 'bar', 'baz'])
-  .should.eql(['word:F', 'word:BR', 'word:BS']);
+  .should.eql([['word', 'F'], ['word', 'BR'], ['word', 'BS']]);
 
 levels
   .metaphoneKeys('foobar', ['foo', 'bar', 'baz'])
-  .should.eql(['word:F', 'word:BR', 'word:BS']);
+  .should.eql([['word', 'F'], ['word', 'BR'], ['word', 'BS']]);
 
 var dbPath = '/tmp/levels'
   , db
   , search;
 
 rimraf.sync(dbPath);
-db = levelup(dbPath, function (err) {
-  db = sublevel(db);
+db = levelup(dbPath, {keyEncoding: 'binary', valueEncoding: 'json'}, function (err) {
+  db = byteup(db);
   search = levels.createSearch(db, 'levels');
   var docs = {
     0: 'Tobi wants 4 dollars',
