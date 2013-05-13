@@ -18,7 +18,7 @@
     "level-sublevel": "~4.6.4",
     "async": "~0.2.8",
     "underscore": "~1.4.4",
-    "byteup": "0.0.4"
+    "byteup": "0.0.5"
   },
   "devDependencies": {
     "should": "*",
