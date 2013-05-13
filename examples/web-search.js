@@ -6,8 +6,7 @@
 var levels = require('../')
   , fs = require('fs')
   , levelup = require('levelup')
-  , sublevel = require('level-sublevel')
-  , db = sublevel(levelup('/tmp/webpages'))
+  , db = levelup('/tmp/webpages', { keyEncoding: 'bytewise', valueEncoding: 'json' })
   , search = levels.createSearch(db, 'webpages')
   , urls = fs.readFileSync(__dirname + '/urls', 'utf8').split('\n');
 

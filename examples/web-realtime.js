@@ -6,8 +6,7 @@
 var http = require('http')
   , levels = require('../')
   , levelup = require('levelup')
-  , sublevel = require('level-sublevel')
-  , db = sublevel(levelup('/tmp/webpages'))
+  , db = levelup('/tmp/webpages', { keyEncoding: 'bytewise', valueEncoding: 'json' })
   , search = levels.createSearch(db, 'webpages')
   , parse = require('url').parse
   , qs = require('querystring')

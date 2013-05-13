@@ -5,8 +5,7 @@
 
 var levels = require('../')
   , levelup = require('levelup')
-  , sublevel = require('level-sublevel')
-  , db = sublevel(levelup('/tmp/pets'))
+  , db = levelup('/tmp/pets', { keyEncoding: 'bytewise', valueEncoding: 'json' })
   , search = levels.createSearch(db, 'pets')
   , rimraf = require('rimraf')
   , async = require('async');
