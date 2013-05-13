@@ -60,8 +60,7 @@ var dbPath = '/tmp/levels'
   , search;
 
 rimraf.sync(dbPath);
-db = levelup(dbPath, {keyEncoding: 'binary', valueEncoding: 'json'}, function (err) {
-  db = byteup(db);
+db = levelup(dbPath, {keyEncoding: 'bytewise', valueEncoding: 'json'}, function (err) {
   search = levels.createSearch(db, 'levels');
   var docs = {
     0: 'Tobi wants 4 dollars',

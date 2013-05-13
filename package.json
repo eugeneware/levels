@@ -1,6 +1,6 @@
 {
   "name": "levels",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "leveldb full text search for node.js",
   "keywords": [
     "leveldb",
@@ -18,13 +18,17 @@
     "level-sublevel": "~4.6.4",
     "async": "~0.2.8",
     "underscore": "~1.4.4",
-    "byteup": "0.0.3"
+    "byteup": "0.0.4"
   },
   "devDependencies": {
     "should": "*",
     "uubench": "*",
     "superagent": "*",
     "rimraf": "~2.1.4"
+  },
+  "scripts": {
+    "test": "node test/index.js",
+    "benchmark": "node test/index.js"
   },
   "main": "index"
 }
