@@ -1,6 +1,6 @@
 {
   "name": "levels",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "leveldb full text search for node.js",
   "keywords": [
     "leveldb",
@@ -30,5 +30,16 @@
     "test": "node test/index.js",
     "benchmark": "node test/index.js"
   },
-  "main": "index"
+  "main": "index",
+  "gitHead": "1ad01e199f183e9b96f5aee0c2f853e71770f451",
+  "readmeFilename": "Readme.md",
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/eugeneware/levels.git"
+  },
+  "license": "BSD"
 }
