@@ -13,18 +13,20 @@
   "author": "Eugene Ware <eugene@noblesamurai.com>",
   "dependencies": {
     "natural": "0.1.17",
-    "levelup": "~0.8.0",
-    "bytewise": "~0.4.0",
-    "level-sublevel": "~4.6.4",
     "async": "~0.2.8",
-    "underscore": "~1.4.4",
-    "byteup": "0.0.5"
+    "underscore": "~1.4.4"
   },
   "devDependencies": {
     "should": "*",
     "uubench": "*",
     "superagent": "*",
     "rimraf": "~2.1.4"
+  },
+  "peerDependencies": {
+    "byteup": "~0.1.1",
+    "level-sublevel": "~4.7.1",
+    "levelup": "~0.10.0",
+    "leveldown": "~0.6.2"
   },
   "scripts": {
     "test": "node test/index.js",

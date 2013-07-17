@@ -7,7 +7,6 @@ var levels = require('../')
   , should = require('should')
   , rimraf = require('rimraf')
   , levelup = require('levelup')
-  , byteup = require('byteup')
   , async = require('async');
 
 var start = new Date;
