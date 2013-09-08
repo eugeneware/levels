@@ -127,7 +127,7 @@ search.query('foo bar').end(function(err, ids){});
 
  Querying with a multi-word phrase, and an index containing ~3500 words operates around __5300__ ops/s. Not too bad.
 
- If working with massive documents, you may want to consider adding a "keywords" field, and simply indexing it's value instead of multi-megabyte documents.
+ If working with massive documents, you may want to consider adding a "keywords" field, and simply indexing its value instead of multi-megabyte documents.
 
 ## License
 
