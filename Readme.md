@@ -1,6 +1,6 @@
 # levels
 
-  levels is a light-weight LevelDB full text search for node.js. This is a port of the redis search [reds](https://github.com/visionmedia/reds) by [TJ Holowaychuk](https://github.com/visionmedia) to use LevelDb.
+  levels is a light-weight LevelDB full text search for node.js. This is a port of the redis search [reds](https://github.com/visionmedia/reds) by [TJ Holowaychuk](https://github.com/visionmedia) to use LevelDB.
 
 ## Installation
 
@@ -8,7 +8,7 @@
 
 ## Example
 
-The first thing you'll want to do is create a `Search` instance, which allows you to pass a `key`, used for namespacing within Redis so that you may have several searches in the same db.
+The first thing you'll want to do is create a `Search` instance, which allows you to pass a `key`, used for namespacing within LevelDB so that you may have several searches in the same db.
 
     var search = levels.createSearch('pets');
 
@@ -94,7 +94,7 @@ search.query('foo bar').end(function(err, ids){});
 
 ## About
 
-  Currently levels strips stop words and applies the metaphone and porter stemmer algorithms to the remaining words before mapping the constants in Redis sets. For example the following text:
+  Currently levels strips stop words and applies the metaphone and porter stemmer algorithms to the remaining words before mapping the constants in LevelDB sets. For example the following text:
 
     Tobi is a ferret and he only wants four dollars
 
